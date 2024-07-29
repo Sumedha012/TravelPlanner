@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ destination.name }} Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .details-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #007bff;
+        }
+        .detail-item {
+            margin-bottom: 20px;
+        }
+        .detail-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .map {
+            margin-top: 20px;
+            border: none;
+            width: 100%;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="details-title">{{ destination.name }}</h1>
+        <div class="detail-item">
+            {% if details.image_url %}
+                <img src="{{ details.image_url }}" alt="{{ destination.name }}">
+            {% endif %}
+            <p>{{ details.description }}</p>
+            <h3>Nearby Hotels</h3>
+            <ul>
+                {% for hotel in details.nearby_hotels %}
+                    <li>{{ hotel }}</li>
+                {% endfor %}
+            </ul>
+            <h3>Places to Discover</h3>
+            <ul>
+                {% for place in details.places_to_discover %}
+                    <li>{{ place }}</li>
+                {% endfor %}
+            </ul>
+            {% if details.map_url %}
+                <h3>Location Map</h3>
+                <iframe class="map" src="{{ details.map_url }}" allowfullscreen></iframe>
+            {% endif %}
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Information</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image:url('');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: #fff;
+        }
+        .images {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .images img {
+            width: calc(25% - 10px);
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        h1, h3 {
+            color: #343a40;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+        .card:first-of-type {
+    background: url('https://c1.wallpaperflare.com/preview/988/16/35/sunset-kerala-aleppay-boat.jpg') no-repeat center center; /* Example background image */
+    background-size: cover;
+    color: #fff; /* Text color for better readability */
+    border-radius: 8px;
+}
+
+.card:first-of-type .card-body {
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for better readability */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.card:first-of-type h1 {
+    color: #fff;
+}
+
+.card:first-of-type p {
+    color: #ddd;
+}
+
+.card:first-of-type a {
+    color: #007bff;
+    text-decoration: underline;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% if details %}
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">{{ details.name }}</h1>
+                    <p class="card-text"><strong>Address:</strong> {{ details.address }}</p>
+                    <p class="card-text"><strong>Rating:</strong> {{ details.rating }}</p>
+                    <p class="card-text"><a href="{{ details.location_link }}" target="_blank">View on Google Maps</a></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Images</h3>
+                    <div class="images">
+                        {% for image in details.images %}
+                            <img src="{{ image }}" alt="{{ details.name }}">
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Reviews</h3>
+                    {% if details.reviews %}
+                        <ul class="card-text">
+                            {% for review in details.reviews %}
+                                <li><strong>{{ review.author_name }}</strong>: {{ review.text }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p class="card-text">No reviews available.</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Nearby Places</h3>
+                    {% if details.nearby_places %}
+                        <ul class="card-text">
+                            {% for place in details.nearby_places %}
+                                <li>{{ place.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p class="card-text">No nearby places found.</p>
+                    {% endif %}
+                </div>
+            </div>
+        {% else %}
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">{{ message }}</p>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

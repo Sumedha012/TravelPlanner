@@ -1,0 +1,288 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voyage Vibes</title>
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <style>
+          body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('https://ideogram.ai/assets/image/lossless/response/nQ8ZVERhSBmnx4cYFIRFuw');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px;
+}
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for better readability */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #007bff;
+}
+
+.carousel-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.carousel-item {
+    display: none;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.carousel-item.active {
+    display: block;
+    opacity: 1;
+}
+
+.btn-group {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-group .btn {
+    flex: 1;
+    margin: 0 5px; /* Adjust the margin to create space between buttons */
+}
+
+.btn-group .btn:first-child {
+    margin-left: 0; /* Remove left margin for the first button */
+}
+
+.btn-group .btn:last-child {
+    margin-right: 0; /* Remove right margin for the last button */
+}
+
+.btn-submit {
+    width: 100%;
+    margin-top: 20px;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <class="form"></class>
+        <form method="post">
+            {% csrf_token %}
+            <div id="preferenceCarousel" class="carousel slide" data-interval="false" data-touch="false" data-keyboard="false">
+                <div class="carousel-inner">
+                   
+                    <div class="carousel-item active">
+                        <h3>Preferred Destination Type</h3>
+                        <div class="form-group">
+                            {{ form.destination_type.label_tag }}
+                            {{ form.destination_type }}
+                        </div>
+                        <button type="button" class="btn btn-primary btn-next" data-target="#preferenceCarousel" data-slide-to="1">Next</button>
+                    </div>
+                  
+                    <div class="carousel-item">
+                        <h3>Budget Range</h3>
+                        <div class="form-group">
+                            {{ form.budget.label_tag }}
+                            {{ form.budget }}
+                        </div>
+                        <button type="button" class="btn btn-primary btn-next" data-target="#preferenceCarousel" data-slide-to="2">Next</button>
+                    </div>
+                   
+                    <div class="carousel-item">
+                        <h3>Start Date</h3>
+                        <div class="form-group">
+                            {{ form.start_date.label_tag }}
+                            {{ form.start_date }}
+                        </div>
+                        <button type="button" class="btn btn-primary btn-next" data-target="#preferenceCarousel" data-slide-to="3">Next</button>
+                    </div>
+                  
+                    <div class="carousel-item">
+                        <h3>End Date</h3>
+                        <div class="form-group">
+                            {{ form.end_date.label_tag }}
+                            {{ form.end_date }}
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">Get Recommendations</button>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#preferenceCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#preferenceCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </form>
+    </div>
+  
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.carousel').carousel({
+                interval: false,
+                wrap: false,
+                keyboard: false
+            });
+            $('.btn-next').click(function() {
+                var target = $(this).data('target');
+                var slideTo = $(this).data('slide-to');
+                $(target).carousel(slideTo);
+            });
+        });
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voyage Vibes</title>
+  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+    <style>
+       body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('https://ideogram.ai/assets/image/lossless/response/nQ8ZVERhSBmnx4cYFIRFuw');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px;
+}
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for better readability */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #007bff;
+}
+
+.carousel-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.carousel-item {
+    display: none;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.carousel-item.active {
+    display: block;
+    opacity: 1;
+}
+
+.btn-group {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-group .btn {
+    flex: 1;
+    margin: 0 5px; /* Adjust the margin to create space between buttons */
+}
+
+.btn-group .btn:first-child {
+    margin-left: 0; /* Remove left margin for the first button */
+}
+
+.btn-group .btn:last-child {
+    margin-right: 0; /* Remove right margin for the last button */
+}
+
+.btn-submit {
+    width: 100%;
+    margin-top: 20px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="form-title">Voyage Vibes</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div id="questionCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="form-group">
+                            <label for="id_destination_type">Destination Type</label>
+                            {{ form.destination_type }}
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary" onclick="$('#questionCarousel').carousel('next')">Next</button>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="form-group">
+                            <label for="id_budget">Budget</label>
+                            {{ form.budget }}
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-secondary" onclick="$('#questionCarousel').carousel('prev')">Previous</button>
+                            <button type="button" class="btn btn-primary" onclick="$('#questionCarousel').carousel('next')">Next</button>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="form-group">
+                            <label for="id_start_date">Start Date</label>
+                            {{ form.start_date }}
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-secondary" onclick="$('#questionCarousel').carousel('prev')">Previous</button>
+                            <button type="button" class="btn btn-primary" onclick="$('#questionCarousel').carousel('next')">Next</button>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="form-group">
+                            <label for="id_end_date">End Date</label>
+                            {{ form.end_date }}
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">Get Recommendations</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html> 
+

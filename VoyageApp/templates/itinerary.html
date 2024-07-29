@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Itinerary</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Nearby Restaurants</h1>
+        {% if data %}
+            <div class="row">
+                {% for place in data %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{ place.photos.0.photo_reference }}&key={{ GOOGLE_API_KEY }}" class="card-img-top" alt="{{ place.name }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ place.name }}</h5>
+                                <p class="card-text">{{ place.vicinity }}</p>
+                                <p class="card-text">Rating: {{ place.rating }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No restaurants found.</p>
+        {% endif %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
