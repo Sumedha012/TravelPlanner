@@ -4,9 +4,10 @@ from .models import Destination, UserPreference
 from .forms import UserPreferenceForm
 import requests
 from django.shortcuts import render, get_object_or_404
-
-
-GOOGLE_API_KEY = 'AIzaSyDuwaaHrLf_-PAQyuRo44xa5yjwJUmTWL4'
+import os
+from dotenv import load_dotenv
+load_dotenv()
+GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
 def index(request):
     if request.method == 'POST':
         form = UserPreferenceForm(request.POST)
